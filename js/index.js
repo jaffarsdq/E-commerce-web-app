@@ -9,15 +9,13 @@ async function fetchCategories () {
 
 async function populateCatogories() {
     const categories = await fetchCategories();
-    const categoriesList = document.getElementById("categories-list");
     categories.forEach(category => {
-        const categoryHolder = document.createElement("div");
+        const categoryHolder = document.getElementById("categories-list");
         const categoryLink = document.createElement("a");
-        categoryLink.href = "#";
+        categoryLink.href = `Product-list.html?category=${category}`;
         categoryLink.textContent = category;
-        categoryHolder.classList.add("col-12","col-sm-6", "col-md-4","col-lg-2","m-2","all-products")
+        categoryLink.classList.add("col-12","col-sm-6", "col-md-4","col-lg-2","m-2","all-products")
         categoryHolder.appendChild(categoryLink);
-        categoriesList.appendChild(categoryHolder)
     });
 
 }

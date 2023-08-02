@@ -6,15 +6,35 @@ document.addEventListener("DOMContentLoaded",async () =>{
         return response.data;
     }
     
-    //storing fetched products details here;
+    //storing fetched products details here
     const downloadedProducts = await fetchProducts();
 
+    //fetching products by category...
+    async function fetchProductsByCategory(category) {
+        const response = await axios.get(`https://fakestoreapi.com/products/category/${category}`);
+        console.log(response.data);
+        return response.data;
+    }
+
+    function getQueryParams() {
+        const queryParams = new URLSearchParams(window.location.search);
+        const queryParamsObject = Object.fromEntries(queryParams.entries());
+        return queryParamsObject;
+    }
+    
     //Populate product according to filter or for the first time loaded...
     async function populateProduct(flag, customProducts) {
         let products = customProducts;
+       
+        const queryParamsObject = getQueryParams();
         if(flag == false) {
-           products = await fetchProducts();
+            if(queryParamsObject['category']) {
+                products = await fetchProductsByCategory(queryParamsObject['category']);
+            } else {
+                products = await fetchProducts();
+            }
         }
+
         products.forEach(product => {
             const productList = document.getElementById("product-list")
             
