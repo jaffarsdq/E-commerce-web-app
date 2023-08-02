@@ -4,7 +4,7 @@
 
 .order-details {
     flex-basis: 70%;
-    box-shadow: 0px 1px 5px var(--mid-gray);
+    box-shadow: 0px 1px 5px lightgray;
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 2rem;
@@ -13,7 +13,7 @@
 .order-details-title {
     font-size: 1.5rem;
     padding-bottom: 20px;
-    border-bottom: 1px solid var(--light-gray);
+    border-bottom: 1px solid lightgrey;
 }
 
 .order-details-product {
@@ -62,11 +62,17 @@
 }
 
 .price-details-box {
-    box-shadow: 0px 1px 5px var(--mid-gray);
+    box-shadow: 0px 1px 5px lightgray;
     border-radius: 10px;
     padding: 20px;
 }
 
 .continue-shopping-btn {
     color: white;
+    background-color: #27b774;
+}
+
+.continue-shopping-btn:hover {
+    color: white;
+    background-color: #20955e;
 }

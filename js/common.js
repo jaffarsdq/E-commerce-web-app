@@ -13,4 +13,9 @@ function removeLoader() {
 async function fetchProductById(id) {
     const product = await axios.get(`https://fakestoreapi.com/products/${id}`);
     return product.data;
-}s
+}
+
+async function fetchCartById(id) {
+    const cart = await axios.get(`https://fakestoreapi.com/carts/${id}`);
+    return cart.data;
+}
