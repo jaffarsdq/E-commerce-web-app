@@ -119,8 +119,15 @@ document.addEventListener("DOMContentLoaded",async () =>{
         })
     }
 
-    populateProduct(false);
-    populateCatogories();
+    async function downloadContentAndPopulate() {
+        Promise.all([populateCatogories(),populateProduct(false)])
+        .then(() => {
+            loaderBackdrop = document.getElementById('loader-backdrop');
+            loaderBackdrop.style.display = 'none';
+        });
+    }
+
+    downloadContentAndPopulate();
 
     //function for filter button to filter products according to the need... 
     const filterSearch = document.getElementById("search-btn");

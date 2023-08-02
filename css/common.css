@@ -33,3 +33,40 @@ html {
 footer,a {
     background-color: var(--cloudy);
 }
+
+.loader-backdrop {
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+}
+
+.loader2 > div {
+    border: 5px solid var(--jean-blue); 
+    width: 5rem;
+    height: 5rem;
+    border-top: 5px solid var(--cloudy);
+    border-bottom: 5px solid var(--cloudy);
+    border-radius: 50%;
+    animation: spinner2 2s linear infinite;
+}
+
+@keyframes spinner2 {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
