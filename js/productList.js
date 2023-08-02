@@ -22,6 +22,13 @@ document.addEventListener("DOMContentLoaded",async () =>{
         return queryParamsObject;
     }
     
+    async function fetchCategories () {
+        const response = await fetch("https://fakestoreapi.com/products/categories");
+        const data = await response.json();
+        return data;
+    
+    }
+
     //Populate product according to filter or for the first time loaded...
     async function populateProduct(flag, customProducts) {
         let products = customProducts;
@@ -98,7 +105,22 @@ document.addEventListener("DOMContentLoaded",async () =>{
         })
     }
 
+
+    async function populateCatogories() {
+        const categories = await fetchCategories();
+        const categoryList = document.getElementById("categoryList");
+        
+        categories.forEach((category) => {
+            const categoryLink = document.createElement("a");
+            categoryLink.classList.add('col-md-12')
+            categoryLink.textContent = category;
+            categoryLink.href = `product-list.html?category=${category}`;
+            categoryList.append(categoryLink);
+        })
+    }
+
     populateProduct(false);
+    populateCatogories();
 
     //function for filter button to filter products according to the need... 
     const filterSearch = document.getElementById("search-btn");
