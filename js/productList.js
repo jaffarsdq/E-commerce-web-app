@@ -15,12 +15,6 @@ document.addEventListener("DOMContentLoaded",async () =>{
         console.log(response.data);
         return response.data;
     }
-
-    function getQueryParams() {
-        const queryParams = new URLSearchParams(window.location.search);
-        const queryParamsObject = Object.fromEntries(queryParams.entries());
-        return queryParamsObject;
-    }
     
     async function fetchCategories () {
         const response = await fetch("https://fakestoreapi.com/products/categories");
@@ -59,7 +53,7 @@ document.addEventListener("DOMContentLoaded",async () =>{
             productItem.target = "_blank";
             // adding classList and attributes to the elements
             productItem.classList.add("container", "col-10", "col-sm-6", "col-md-5", "col-lg-4", "col-xl-3","text-center")
-            productItem.href = "Product-details.html";
+            productItem.href = `Product-details.html?id=${product.id}`;
 
             cardDiv.classList.add("col-12","p-2","card")
 
@@ -122,8 +116,7 @@ document.addEventListener("DOMContentLoaded",async () =>{
     async function downloadContentAndPopulate() {
         Promise.all([populateCatogories(),populateProduct(false)])
         .then(() => {
-            loaderBackdrop = document.getElementById('loader-backdrop');
-            loaderBackdrop.style.display = 'none';
+            removeLoader();
         });
     }
 
