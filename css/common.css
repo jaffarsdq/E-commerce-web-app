@@ -1,0 +1,35 @@
+html {
+    box-sizing: border-box;
+    border: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+:root {
+    --cloudy: #e3f2fd;
+}
+
+.header .navbar{
+    background-color: var(--cloudy);
+}
+
+.welcome {
+    padding: 2rem;
+    letter-spacing: 0.5rem;
+}
+
+.cart:hover {
+    text-decoration-line: underline;
+}
+
+.nav-brand {
+    letter-spacing: 0.5rem;
+}
+
+footer,a {
+    background-color: var(--cloudy);
+}
